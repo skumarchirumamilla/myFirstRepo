@@ -13,4 +13,15 @@ jobs:
       - name: Hello
         run: echo "Hello World"
         shell: bash
+  create-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Text File
+        run: |
+          echo "Hello, this is some text." > example.txt
+        shell: bash
+
+      - name: Display Contents
+        run: cat example.txt
+        shell: bash            
 
