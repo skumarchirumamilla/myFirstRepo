@@ -1,4 +1,4 @@
-name: Build and Test
+name: File Handling
 
 on:
   pull_request:
@@ -23,5 +23,15 @@ jobs:
 
       - name: Display Contents
         run: cat example.txt
-        shell: bash            
+        shell: bash  
+  read-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Read File
+        run: |
+          cat main/sample.txt
+        shell: bash                
 
