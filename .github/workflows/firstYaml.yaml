@@ -32,6 +32,6 @@ jobs:
 
       - name: Read File
         run: |
-          cat main/sample.txt
+          cat sample.txt
         shell: bash                
 
