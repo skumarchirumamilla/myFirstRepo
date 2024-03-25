@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Dispatch Custom Event
-      uses: actions/checkout@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        repository: skumarchirumamilla/myFirstRepo
-        event-type: hello_trigger
+    - name: Trigger Repository Dispatch
+      run: |
+        curl -X POST \
+          -H "Accept: application/vnd.github.everest-preview+json" \
+          -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          "https://api.github.com/repos/skumarchirumamilla/myFirstRepo/dispatches" \
+          -d '{"event_type": "hello_trigger"}'
