@@ -1,0 +1,17 @@
+name: Schedule Workflow
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Runs every 5 minutes
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Dispatch Custom Event
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        repository: skumarchirumamilla/myFirstRepo
+        event-type: hello_trigger
