@@ -10,4 +10,4 @@ jobs:
     
     steps:
     - name: Say Hello
-      run: echo "Hello, world!"
+      run: echo "Hello, Welcome to GIT Workflows"
