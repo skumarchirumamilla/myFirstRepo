@@ -10,7 +10,7 @@ jobs:
     
     steps:
     - name: Dispatch Custom Event
-      uses: actions/checkout@v2 #peter-evans/repository-dispatch@v2
+      uses: actions/checkout@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         repository: skumarchirumamilla/myFirstRepo
