@@ -1,0 +1,13 @@
+name: Hello World Workflow
+
+on:
+  repository_dispatch:
+    types: [hello_trigger]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Say Hello
+      run: echo "Hello, world!"
