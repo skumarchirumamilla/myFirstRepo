@@ -1,1 +1,13 @@
+name: Bye World Workflow
 
+on:
+  repository_dispatch:
+    types: [bye_trigger]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Say Bye
+      run: echo "Bye GIT Workflows"
