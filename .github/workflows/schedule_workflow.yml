@@ -19,7 +19,7 @@ jobs:
           -d '{"event_type": "hello_trigger"}'
     # New workflow for scheduling bye_trigger every hour
     - name: Trigger bye_trigger
-      if: ${{ github.event_name == 'schedule' &&  && github.event.schedule == '*/2 * * * *' }}
+      if: ${{ github.event_name == 'schedule' && github.event.schedule == '*/2 * * * *' }}
       run: |
           curl -X POST \
             -H "Accept: application/vnd.github.everest-preview+json" \
