@@ -3,7 +3,7 @@ name: Schedule Workflow
 on:
   schedule:
     - cron: '*/5 * * * *'  # Runs every 5 minutes
-
+    - cron: '0 * * * *'  # Runs every hour
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,3 +16,16 @@ jobs:
           -H "Authorization: Bearer ${{ secrets.PAT_TOKEN }}" \
           "https://api.github.com/repos/skumarchirumamilla/myFirstRepo/dispatches" \
           -d '{"event_type": "hello_trigger"}'
+   # New workflow for scheduling bye_trigger every hour
+  schedule_bye_trigger:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Trigger Repository Dispatch for bye_trigger
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.everest-preview+json" \
+            -H "Authorization: Bearer ${{ secrets.PAT_TOKEN }}" \
+           "https://api.github.com/repos/skumarchirumamilla/myFirstRepo/dispatches" \
+            -d '{"event_type": "bye_trigger"}'         
+
